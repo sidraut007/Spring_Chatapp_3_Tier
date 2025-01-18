@@ -31,18 +31,22 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
    git clone https://github.com/Goldencat98/ChatApp.git
    cd ChatApp
    ```
+   
+2. Create MySQL database using [SQLScript](src/main/resources/static/sql-script/SQLScript.txt)
 
-2. **Build the Project**:
+3. Update MySQL password in [application.properties](src/main/resources/application.properties)
+
+4. **Build the Project**:
    ```sh
    mvn clean install
    ```
 
-3. **Run the Application**:
+5. **Run the Application**:
    ```sh
    mvn spring-boot:run
    ```
 
-4. **Access the Application**:
+6. **Access the Application**:
    Open your browser and navigate to `http://localhost:8080`.
 
 ## Usage

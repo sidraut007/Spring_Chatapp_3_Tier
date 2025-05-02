@@ -9,13 +9,29 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 - Java 17 or higher
 - Maven 3.6+
 
-### Steps to Run Chat App
+### STEPS TO IMPLEMENT THE PROJECT
+- **<p id="Docker">Deployment using Docker</p>**
+ 
+  - Clone the repository
+  ```bash
+  git clone 
+  ```
+  #
+  - Install docker, docker compose and provide neccessary permission
+  ```bash
+  sudo apt update -y
 
-1. **Clone the Repository**:
-   ```sh
-   git clone https://github.com/Goldencat98/ChatApp.git
-   cd ChatApp
-   ```
+  sudo apt install docker.io docker-compose-v2 -y
+
+  sudo usermod -aG docker $USER && newgrp docker
+  ``` 
+  #
+  - Move to the cloned repository
+  ```bash
+  cd Springboot-BankApp
+  ```
+  #
+
    
 2. Create MySQL database using [SQLScript](src/main/resources/static/sql-script/SQLScript.txt)
 
@@ -28,6 +44,11 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
    docker build -t sidraut007/chatapp
    
    ```
+  
+  **Create a docker network**
+  ```bash
+  docker network create bankapp
+  ```
 
   **Run MySQL Database**:
 

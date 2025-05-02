@@ -9,7 +9,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 - Java 17 or higher
 - Maven 3.6+
 
-### Steps to Run Locally
+### Steps to Run Chat App
 
 1. **Clone the Repository**:
    ```sh
@@ -21,7 +21,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 
 3. Update MySQL password in [application.properties](src/main/resources/application.properties)
 
-4. # Containerisation
+# Containerisation
 
   **Build the Project**:
    ```sh
@@ -43,7 +43,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 
   ```
 
-5. **Access the Application**:
+**Access the Application**:
    
     Open your browser and navigate to `http://<Server_IP>:8081`.
 

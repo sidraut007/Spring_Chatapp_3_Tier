@@ -2,28 +2,6 @@
 
 A real-time one to one chat web application built using Java 17, MySQL, Spring Boot, Spring Security, WebSocket, and Thymeleaf. This application allows users to chat with other users is a seperate environment, featuring a modern tech stack with a responsive user interface.
 
-# Containerisation
-```
-docker run -itd --name mysql -e MYSQL_ROOT_PASSWORD=Test@1234 -e MYSQL_DATABASE=chatapp --network=chatapp mysql:5.7
-
-docker run -itd --name chatpp -e SPRING_DATASOURCE_USERNAME="root" -e SPRING_DATASOURCE_URL="jdbc:mysql://mysql:3306/chatapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC" -e SPRING_DATASOURCE_PASSWORD="Test@1234" --network=chatapp -p 8081:8080 sidraut007/chatapp
-
-```
-## Features
-
-- **Instant Messaging**: Seamless, real-time communication enabled by WebSocket technology for instantaneous message delivery.
-- **Secure Login and Registration**: User authentication and access management powered by Spring Security for a robust and secure experience.
-- **User Notifications**: Instant alerts for new messages and user activity, such as logins, ensuring you stay updated in real-time.
-- **Chat History Persistence**: Effortless storage and retrieval of chat data from a MySQL database, providing access to previous conversations anytime.
-- **Responsive Interface**: Optimized for all devices using Bootstrap, delivering a consistent and user-friendly design across platforms.
-- **Integrated Social Media Links**: Quick access to social profiles directly from the chatroom header for easy networking.
-
-## Tech Stack
-
-- **Backend**: Java 17, Spring Boot, Spring Security, MySQL Database, Lombok
-- **Frontend**: Thymeleaf, Bootstrap, Font Awesome
-- **Real-Time Communication**: Spring WebSocket, STOMP protocol
-- **Build Tool**: Maven
 
 ## Setup Instructions
 
@@ -43,95 +21,33 @@ docker run -itd --name chatpp -e SPRING_DATASOURCE_USERNAME="root" -e SPRING_DAT
 
 3. Update MySQL password in [application.properties](src/main/resources/application.properties)
 
-4. **Build the Project**:
+4. # Containerisation
+
+  **Build the Project**:
    ```sh
-   mvn clean install
+   docker build -t sidraut007/chatapp
+   
    ```
 
-5. **Run the Application**:
-   ```sh
-   mvn spring-boot:run
-   ```
+  **Run MySQL Database**:
 
-6. **Access the Application**:
-   Open your browser and navigate to `http://localhost:8080`.
+  ```
+  
+  docker run -itd --name mysql -e MYSQL_ROOT_PASSWORD=Test@1234 -e MYSQL_DATABASE=chatapp --network=chatapp mysql:5.7
 
-## Usage
+  ```
+  **Run the Application**:
+  ```
+  
+    docker run -itd --name chatpp -e SPRING_DATASOURCE_USERNAME="root" -e SPRING_DATASOURCE_URL="jdbc:mysql://mysql:3306/chatapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC" -e SPRING_DATASOURCE_PASSWORD="Test@1234" --network=chatapp -p 8081:8080 sidraut007/chatapp
 
-- **Login**: Create a new account or securely log in using your existing credentials to access the platform.
-- **Chat**: Engage in real-time conversations with other users. Stay informed with instant notifications when new users join or send you messages.
+  ```
 
-## License
+5. **Access the Application**:
+   
+    Open your browser and navigate to `http://<Server_IP>:8081`.
 
-This project is licensed under the **Goldencat Chatroom License**. You may use, modify, and distribute the software for personal, non-commercial use. Commercial use requires prior approval from the creator.
-
-For more details, see the [LICENSE](./License.md) file.
-
-## Contact
-
-For permissions related to commercial use or any questions, please contact: Code With Goldencat (codingwithgoldencat@gmail.com)
-
-## Contributions
-
-Contributions are welcome! Feel free to open an issue or submit a pull request to improve the project.
-
-## Screenshots
 
 ![Login Page](src/main/resources/static/screenshots/login_screenshot.png)
 ![Register Page](src/main/resources/static/screenshots/register_screenshot.png)
 ![Chat App Page](src/main/resources/static/screenshots/chatapp_screenshot.png)
-
-## Future Enhancements
-
-- **Profile Management**: Update username, details, or profile picture.
-- **Privacy Controls**: Block or restrict messages from others.
-- **Message Encryption**: Ensure secure chats with encrypted storage and transmission.
-- **Media Sharing**: Share images and files effortlessly in chats.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-version: '3.7'
-
-services:
-  app:
-    image: sidraut007/chatapp
-    container_name: chatapp
-    environment:
-      SPRING_DATASOURCE_USERNAME: "root"
-      SPRING_DATASOURCE_PASSWORD: "Test@1234"
-      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/chatapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
-    volumes:
-      - ./app:/app
-    ports:
-      - "8081:8080"
-    command: ["java", "-jar", "chatapp.jar"]
-    depends_on:
-      - db
-
-  db:
-    image: mysql:5.7
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: Test@1234
-      MYSQL_DATABASE: chatapp
-    ports:
-      - "3306:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-
-volumes:
-  db_data:

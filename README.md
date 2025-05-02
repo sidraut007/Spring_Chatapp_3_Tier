@@ -28,16 +28,16 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
   #
   - Move to the cloned repository
   ```bash
-  cd Springboot-BankApp
+  cd ChatApp
   ```
   #
-
-   
+ 
 2. Create MySQL database using [SQLScript](src/main/resources/static/sql-script/SQLScript.txt)
 
 3. Update MySQL password in [application.properties](src/main/resources/application.properties)
 
-# Containerisation
+
+## Containerisation
 
   **Build the Project**:
    ```sh
@@ -47,7 +47,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
   
   **Create a docker network**
   ```bash
-  docker network create bankapp
+  docker network create chatapp
   ```
 
   **Run MySQL Database**:

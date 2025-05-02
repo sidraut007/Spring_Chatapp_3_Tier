@@ -2,6 +2,13 @@
 
 A real-time one to one chat web application built using Java 17, MySQL, Spring Boot, Spring Security, WebSocket, and Thymeleaf. This application allows users to chat with other users is a seperate environment, featuring a modern tech stack with a responsive user interface.
 
+# Containerisation
+```
+docker run -itd --name mysql -e MYSQL_ROOT_PASSWORD=Test@1234 -e MYSQL_DATABASE=chatapp --network=chatapp mysql:5.7
+
+docker run -itd --name chatpp -e SPRING_DATASOURCE_USERNAME="root" -e SPRING_DATASOURCE_URL="jdbc:mysql://mysql:3306/chatapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC" -e SPRING_DATASOURCE_PASSWORD="Test@1234" --network=chatapp -p 8081:8080 sidraut007/chatapp
+
+```
 ## Features
 
 - **Instant Messaging**: Seamless, real-time communication enabled by WebSocket technology for instantaneous message delivery.
@@ -81,3 +88,50 @@ Contributions are welcome! Feel free to open an issue or submit a pull request t
 - **Message Encryption**: Ensure secure chats with encrypted storage and transmission.
 - **Media Sharing**: Share images and files effortlessly in chats.  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: '3.7'
+
+services:
+  app:
+    image: sidraut007/chatapp
+    container_name: chatapp
+    environment:
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "Test@1234"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/chatapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+    volumes:
+      - ./app:/app
+    ports:
+      - "8081:8080"
+    command: ["java", "-jar", "chatapp.jar"]
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Test@1234
+      MYSQL_DATABASE: chatapp
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

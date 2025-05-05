@@ -25,7 +25,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
   #
   - Move to the cloned repository
   ```bash
-  cd ChatApp
+  cd Spring_Chatapp_3_Tier 
   ```
   #
 
@@ -99,9 +99,9 @@ docker compose up -d
 #
 - **<p id="Kubernetes">Deployment using Kubernetes</p>**
 
-- Move to the K8s/
+- Move to the K8s/manifest
   ```bash
-  cd ChatApp
+  cd Spring_Chatapp_3_Tier/K8s/manifest
   ```
 
 #### STEP1: MYSQL SETUP

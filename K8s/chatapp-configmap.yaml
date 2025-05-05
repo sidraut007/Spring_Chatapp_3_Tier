@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: chatapp-configmap
-  namespace: default
-data:
-  SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/chatapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
-  

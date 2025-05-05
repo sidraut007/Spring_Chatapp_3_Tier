@@ -1,11 +1,15 @@
-# Goldencat Chatroom
-
+# Spring-Chatroom
+## End-to-End Bank Application Deployment using DevSecOps on AWS EKS
 A real-time one to one chat web application built using Java 17, MySQL, Spring Boot, Spring Security, WebSocket, and Thymeleaf. This application allows users to chat with other users is a seperate environment, featuring a modern tech stack with a responsive user interface.
 
 
 ## Setup Instructions
 
-### Prerequisites
+### PRE-REQUISITES FOR THIS PROJECT:
+- AWS Account
+- AWS Ubuntu EC2 instance (t2.medium)
+- Install Docker
+- Install docker compose
 - Java 17 or higher
 - Maven 3.6+
 
@@ -67,6 +71,25 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 **Access the Application**:
    
     Open your browser and navigate to `http://<Server_IP>:8081`.
+
+ ### Congratulations, you have deployed the application using Docker 
+  #
+- **<p id="dockercompose">Deployment using Docker compose</p>**
+- Install docker compose
+```bash
+sudo apt update
+sudo apt install docker-compose-v2 -y
+```
+#
+- Run docker-compose file present in the root directory of a project
+```bash
+docker compose up -d
+```
+#
+- Access it on port 8080
+```bash
+  http://<public-ip>:8080
+```
 
 
 ![Login Page](src/main/resources/static/screenshots/login_screenshot.png)

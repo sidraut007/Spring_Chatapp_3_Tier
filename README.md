@@ -1,5 +1,5 @@
 # Spring-Chatroom
-## End-to-End Bank Application Deployment using DevSecOps on AWS EKS
+## End-to-End Chat Application Deployment using DevSecOps on AWS EKS
 A real-time one to one chat web application built using Java 17, MySQL, Spring Boot, Spring Security, WebSocket, and Thymeleaf. This application allows users to chat with other users is a seperate environment, featuring a modern tech stack with a responsive user interface.
 
 

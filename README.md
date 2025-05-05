@@ -35,7 +35,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 
 
 ## Containerisation
-- **<p id="Docker">Deployment using Docker</p>**
+- ### **<p id="Docker">Deployment using Docker</p>**
  
   #
   - Install docker, docker compose and provide neccessary permission
@@ -78,7 +78,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 
  ### Congratulations, you have deployed the application using Docker 
   #
-- **<p id="dockercompose">Deployment using Docker compose</p>**
+- ### **<p id="dockercompose">Deployment using Docker compose</p>**
 - Install docker compose
 
 ```bash
@@ -97,7 +97,7 @@ docker compose up -d
 ```
 
 #
-- **<p id="Kubernetes">Deployment using Kubernetes</p>**
+- ### **<p id="Kubernetes">Deployment using Kubernetes</p>**
 
 - Move to the K8s/manifest
   ```bash

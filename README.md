@@ -77,9 +77,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
     Open your browser and navigate to http://<Server_IP>:8081
 
  ### Congratulations, you have deployed the application using Docker 
-
 -------------------------------------------------------------------------------------------------------------------------------------
-
   #
 - ### **<p id="dockercompose">Deployment using Docker compose</p>**
 - Install docker compose
@@ -126,7 +124,7 @@ kubectl proxy
 
 - Now Access it using (http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 -------------------------------------------------------------------------------------------------------------------------------------
-
+## Orchestration using Kubernetes
 #
 - ### **<p id="Kubernetes">Deployment using Kubernetes</p>**
 

@@ -130,26 +130,29 @@ kubectl apply -f chatapp-service.yaml
 kubectl apply -f chatapp-deploy.yaml
 ```
 
-- How To Access it over Internet
 
-```bash
-kubectl get svc
 
-kubectl port-forward svc/chatapp-service 8080:80
-```
-
-### HOW TO ACCESS
+### HOW TO ACCESS ON Internet
 
 - This steps is required only who are using everything on laptop
+
+```bash
+  kubectl get svc
+  
+  kubectl port-forward svc/chatapp-service 8080:80
+```
 
 ```bash
   http://localhost:80
 ```
 
-- If you are using EC2:
-  create nodeport type service
+### If you are using EC2:
+- create NodePort type service and access it 
+
 ```bash
+  kubectl get svc
+
   http://<server-ip>:nodeport
 ```
 
-### Congratulations, you have deployed the application using Kubernetes Cluster 
+## Congratulations, you have deployed the application using Kubernetes Cluster 

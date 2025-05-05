@@ -129,29 +129,46 @@ kubectl apply -f chatapp-service.yaml
 
 kubectl apply -f chatapp-deploy.yaml
 ```
+## HOW TO SETUP KUBERNETES DASHBOARD FOR MONITORING
 
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
+kubectl create serviceaccount admin-user -n kubernetes-dashboard
 
-### HOW TO ACCESS ON Internet
+kubectl create clusterrolebinding admin-user-binding \
+  --clusterrole=cluster-admin \
+  --serviceaccount=kubernetes-dashboard:admin-user
+
+kubectl -n kubernetes-dashboard create token admin-user
+```
+- IT WILL CREATE TOCKEN COPY IT IT WILL REQUIRED AT THE TIME OF LOGIN
+
+```bash
+kubectl proxy
+```
+- Now Access it using (http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+
+## HOW TO ACCESS OVER INTERNET
+
+### If you are using Laptop
 
 - This steps is required only who are using everything on laptop
 
 ```bash
   kubectl get svc
-  
   kubectl port-forward svc/chatapp-service 8080:80
 ```
 
-```bash
-  http://localhost:80
-```
+ - http://localhost:80
 
-### If you are using EC2:
-- create NodePort type service and access it 
+
+### If you are using EC2 Instance:
+
+- create NodePort type of service and access it using Server_Public_IP
 
 ```bash
   kubectl get svc
-
   http://<server-ip>:nodeport
 ```
 

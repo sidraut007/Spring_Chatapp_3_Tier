@@ -77,6 +77,9 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
     Open your browser and navigate to http://<Server_IP>:8081
 
  ### Congratulations, you have deployed the application using Docker 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
   #
 - ### **<p id="dockercompose">Deployment using Docker compose</p>**
 - Install docker compose
@@ -95,6 +98,34 @@ docker compose up -d
 ```bash
   http://<public-ip>:8080
 ```
+## Congratulations, you have deployed the application using Docker Compose
+-------------------------------------------------------------------------------------------------------------------------------------
+
+#### HOW TO SETUP KUBERNETES DASHBOARD FOR MONITORING
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+```
+
+```bash
+kubectl create serviceaccount admin-user -n kubernetes-dashboard
+
+kubectl create clusterrolebinding admin-user-binding \
+  --clusterrole=cluster-admin \
+  --serviceaccount=kubernetes-dashboard:admin-user
+```
+
+```bash
+kubectl -n kubernetes-dashboard create token admin-user
+```
+- IT WILL CREATE TOCKEN COPY IT IT WILL REQUIRED AT THE TIME OF LOGIN
+
+```bash
+kubectl proxy
+```
+
+- Now Access it using (http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+-------------------------------------------------------------------------------------------------------------------------------------
 
 #
 - ### **<p id="Kubernetes">Deployment using Kubernetes</p>**
@@ -129,25 +160,6 @@ kubectl apply -f chatapp-service.yaml
 
 kubectl apply -f chatapp-deploy.yaml
 ```
-## HOW TO SETUP KUBERNETES DASHBOARD FOR MONITORING
-
-```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
-
-kubectl create serviceaccount admin-user -n kubernetes-dashboard
-
-kubectl create clusterrolebinding admin-user-binding \
-  --clusterrole=cluster-admin \
-  --serviceaccount=kubernetes-dashboard:admin-user
-
-kubectl -n kubernetes-dashboard create token admin-user
-```
-- IT WILL CREATE TOCKEN COPY IT IT WILL REQUIRED AT THE TIME OF LOGIN
-
-```bash
-kubectl proxy
-```
-- Now Access it using (http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
 
 ## HOW TO ACCESS OVER INTERNET
 

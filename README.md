@@ -62,7 +62,7 @@ A real-time one to one chat web application built using Java 17, MySQL, Spring B
 
   ```
   
-  docker run -itd --name mysql -e MYSQL_ROOT_PASSWORD=Test@1234 -e MYSQL_DATABASE=chatapp --network=chatapp mysql:5.7
+  docker run -itd --name mysql -e MYSQL_ROOT_PASSWORD=Test@1234 -e MYSQL_DATABASE=chatapp --network=chatapp mysql:8.0
 
   ```
   **Run the Application**:
